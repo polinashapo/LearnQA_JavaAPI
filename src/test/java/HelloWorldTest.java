@@ -1,3 +1,6 @@
+import io.restassured.RestAssured;
+import io.restassured.response.Response;
+
 import org.junit.jupiter.api.Test;
 
 
@@ -7,7 +10,10 @@ public class HelloWorldTest {
 
     public void testHelloWorld()
     {
-        System.out.println("Hello World");
+       Response response = RestAssured
+        .get("https://playground.learnqa.ru/api/hello")
+        .andReturn();
+       response.prettyPrint();
 
     }
 
